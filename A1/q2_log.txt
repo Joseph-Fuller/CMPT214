@@ -8,3 +8,6 @@ top -n 1 -U root
 
 top -n 1 -U root | tail -7 | wc -l	
 #Number of root's processes sent to std out
+
+top -n 1 -U root | tail -n +7 > file ; top -n 1 -U $USER | tail -n +7 >> file ; wc -l < file
+#Both root and user processes. Uses separate pipelines
