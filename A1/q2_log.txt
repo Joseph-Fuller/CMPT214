@@ -1,0 +1,10 @@
+11231094
+jof222
+Joseph Fuller
+
+
+top -n 1 -U root 
+#Output of top displaying only root's processes
+
+top -n 1 -U root | tail -7 | wc -l	
+#Number of root's processes sent to std out
