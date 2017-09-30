@@ -3,11 +3,22 @@ jof222
 Joseph Fuller
 
 
-top -n 1 -U root 
-#Output of top displaying only root's processes
+top -b -n 1
+#Full output of top
 
-top -n 1 -U root | tail -7 | wc -l	
-#Number of root's processes sent to std out
+top -b -n 1 -w 18
+# Limit the columns displayed to PID and USER
 
-top -n 1 -U root | tail -n +7 > file ; top -n 1 -U $USER | tail -n +7 >> file ; wc -l < file
-#Both root and user processes. Uses separate pipelines
+
+top -b -n 1 -w 18 | tail -n +8
+#Filter out irrelevant lines at beginning 
+
+
+top -b -n 1 -w 18 | tail -n +8 | wc -l
+#Count the total number of processes
+
+top -b -n 1 -w 18 | tail -n +8 | grep -v $USER | grep -v root | wc -l
+#Exclude processes owned by root or current username
+
+
+
