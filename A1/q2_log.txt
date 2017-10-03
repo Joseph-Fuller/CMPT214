@@ -2,29 +2,766 @@
 jof222
 Joseph Fuller
 
+_______________________________________________________
 
-# Output of pipeline. i.e. Total number of processes NOT owned by current user or root:
-jof222@tux7:~> top -b -n 1 | tail -n +8 | grep -v "$USER " | grep -v "root " | grep -c -v ^$
-141
+# Output of finished pipeline. i.e. Total number of processes NOT owned by current user or root:
+jof222@tux8:~> top -b -n 1 -w 18 | tail -n +8 | grep -v "$USER" | grep -v "root" | grep -c -v ^$
+210
 
 # Number of processes owned by current user:
-jof222@tux7:~> top -b -n 1 | tail -n +8 | grep -c "$USER "                               
+jof222@tux8:~> top -b -n 1 -w 18 | tail -n +8 | grep -c "$USER"                               
 8
 
 # Number of processes owned by root:
-jof222@tux7:~> top -b -n 1 | tail -n +8 | grep -c "root "
-485
+jof222@tux8:~> top -b -n 1 -w 18 | tail -n +8 | grep -c "root"
+526
 
 # Total number of processes:
-jof222@tux7:~> top -b -n 1 | tail -n +8 | wc -l          
-633
+jof222@tux8:~> top -b -n 1 -w 18 | tail -n +8 | wc -l          
+740
 
-So, the difference between the two totals is 140. This is close enough for me to say that the 1-process 
-discrepancy can be explained by fluctuation of processes running on tux7 in the time between the commands being entered.
+So, the difference between the two totals is 140. This is close enough for me to say that the 4-process 
+discrepancy can be explained by fluctuation of processes running on tux8 in the time between the commands being entered.
+_______________________________________________________
 
+MY OUPUT OF TOP: 
 
-# Running the pipeline on the example output of top saved in a file called “test”
-jof222@tux7:~> cat test | tail -n +8 | grep -v "makaroff " | grep -v "root " | grep -c -v ^$
-93
+top - 13:23:06 up 
+Tasks: 731 total, 
+%Cpu(s):  0.5 us, 
+KiB Mem : 13193510
+KiB Swap: 16778748
 
-This produced the expected result.
+  PID USER
+12715 root
+14834 sddm
+    1 root
+    2 root
+    3 root
+    5 root
+    6 root
+    8 root
+    9 root
+   10 root
+   11 root
+   12 root
+   13 root
+   14 root
+   15 root
+   17 root
+   19 root
+   20 root
+   21 root
+   23 root
+   24 root
+   25 root
+   26 root
+   28 root
+   29 root
+   30 root
+   31 root
+   33 root
+   34 root
+   35 root
+   36 root
+   38 root
+   39 root
+   40 root
+   41 root
+   43 root
+   44 root
+   45 root
+   46 root
+   48 root
+   49 root
+   50 root
+   51 root
+   53 root
+   54 root
+   55 root
+   56 root
+   58 root
+   59 root
+   60 root
+   61 root
+   63 root
+   64 root
+   65 root
+   66 root
+   68 root
+   69 root
+   70 root
+   71 root
+   73 root
+   74 root
+   75 root
+   76 root
+   78 root
+   79 root
+   80 root
+   81 root
+   83 root
+   84 root
+   85 root
+   86 root
+   88 root
+   89 root
+   90 root
+   91 root
+   93 root
+   94 root
+   95 root
+   96 root
+   98 root
+   99 root
+  100 root
+  101 root
+  103 root
+  104 root
+  105 root
+  106 root
+  108 root
+  109 root
+  110 root
+  111 root
+  113 root
+  114 root
+  115 root
+  116 root
+  118 root
+  119 root
+  120 root
+  121 root
+  123 root
+  124 root
+  125 root
+  126 root
+  128 root
+  129 root
+  130 root
+  131 root
+  133 root
+  134 root
+  135 root
+  136 root
+  138 root
+  139 root
+  140 root
+  141 root
+  143 root
+  144 root
+  145 root
+  146 root
+  148 root
+  149 root
+  150 root
+  151 root
+  153 root
+  154 root
+  155 root
+  156 root
+  158 root
+  159 root
+  160 root
+  161 root
+  163 root
+  164 root
+  165 root
+  166 root
+  168 root
+  169 root
+  170 root
+  171 root
+  173 root
+  174 root
+  175 root
+  176 root
+  178 root
+  179 root
+  180 root
+  181 root
+  183 root
+  184 root
+  185 root
+  186 root
+  188 root
+  189 root
+  190 root
+  191 root
+  193 root
+  194 root
+  195 root
+  196 root
+  198 root
+  199 root
+  200 root
+  201 root
+  203 root
+  204 root
+  205 root
+  206 root
+  208 root
+  209 root
+  210 root
+  211 root
+  213 root
+  214 root
+  215 root
+  216 root
+  218 root
+  219 root
+  220 root
+  221 root
+  223 root
+  224 root
+  225 root
+  226 root
+  228 root
+  229 root
+  230 root
+  231 root
+  233 root
+  234 root
+  235 root
+  236 root
+  238 root
+  239 root
+  240 root
+  241 root
+  243 root
+  244 root
+  245 root
+  246 root
+  248 root
+  249 root
+  250 root
+  251 root
+  252 root
+  253 root
+  254 root
+  255 root
+  256 root
+  257 root
+  258 root
+  259 root
+  260 root
+  261 root
+  265 root
+  266 root
+  267 root
+  268 root
+  271 root
+  272 root
+  273 root
+  294 root
+  297 root
+  298 root
+  299 root
+  300 root
+  301 root
+  302 root
+  303 root
+  304 root
+  305 root
+  306 root
+  307 root
+  308 root
+  309 root
+  310 root
+  311 root
+  312 root
+  313 root
+  314 root
+  315 root
+  316 root
+  317 root
+  318 root
+  319 root
+  320 root
+  325 root
+  326 root
+  327 root
+  328 root
+  329 root
+  330 root
+  331 root
+  332 root
+  333 root
+  334 root
+  335 root
+  336 root
+  346 rjd471
+  365 root
+  375 root
+  378 root
+  379 root
+  444 root
+  445 root
+  450 root
+  453 root
+  720 root
+ 1192 root
+ 1207 root
+ 1213 root
+ 1214 root
+ 1270 root
+ 1271 root
+ 1272 root
+ 1276 root
+ 1283 root
+ 1316 root
+ 1329 root
+ 1330 root
+ 1331 root
+ 1332 root
+ 1335 root
+ 1345 root
+ 1350 root
+ 1352 root
+ 1365 root
+ 1393 root
+ 1394 root
+ 1400 root
+ 1407 root
+ 1408 root
+ 1414 root
+ 1418 root
+ 1423 root
+ 1425 root
+ 1454 root
+ 1468 oll724
+ 1470 oll724
+ 1531 root
+ 1535 root
+ 1539 root
+ 1540 root
+ 1541 root
+ 1542 root
+ 1555 root
+ 1556 root
+ 1558 root
+ 1560 root
+ 1583 root
+ 1637 root
+ 1638 root
+ 1660 root
+ 1677 root
+ 1678 root
+ 1680 root
+ 1688 root
+ 1689 root
+ 1693 root
+ 1706 root
+ 1795 root
+ 1812 root
+ 1842 root
+ 1844 root
+ 2097 root
+ 2100 root
+ 2102 root
+ 2104 root
+ 2347 root
+ 2388 root
+ 2595 root
+ 2641 root
+ 2887 root
+ 2906 kay851
+ 2909 kay851
+ 2913 kay851
+ 2915 kay851
+ 2917 kay851
+ 3283 oll724
+ 3284 oll724
+ 3331 root
+ 3431 root
+ 3554 dsg432
+ 3862 root
+ 3872 bta500
+ 3874 root
+ 3883 bta500
+ 3885 bta500
+ 4074 root
+ 4084 root
+ 4306 root
+ 4358 root
+ 4368 dsg432
+ 4843 root
+ 5054 yuh347
+ 5057 yuh347
+ 5061 yuh347
+ 5063 yuh347
+ 5065 yuh347
+ 5325 root
+ 5327 root
+ 5589 root
+ 5647 root
+ 6093 root
+ 6103 ggb803
+ 6106 ggb803
+ 6110 ggb803
+ 6112 ggb803
+ 6115 root
+ 6125 ggb803
+ 6722 root
+ 7026 root
+ 7312 root
+ 7568 bta500
+ 7822 root
+ 8552 root
+ 8554 root
+ 8555 root
+ 8602 root
+ 9112 root
+ 9113 root
+ 9120 postfix
+ 9604 root
+ 9621 root
+ 9712 rtkit
+ 9713 root
+ 9714 daemon
+ 9715 root
+ 9717 root
+ 9718 root
+ 9719 root
+ 9733 root
+ 9739 message+
+ 9750 chrony
+ 9759 root
+ 9769 root
+ 9848 systemd+
+ 9850 avahi
+ 9855 root
+ 9907 root
+ 9908 root
+ 9916 rpc
+ 9922 avahi
+ 9988 root
+10144 root
+10186 root
+10188 root
+10201 dwm750
+10204 dwm750
+10209 dwm750
+10211 dwm750
+10239 root
+10283 root
+10370 oll724
+10523 dwm750
+10802 root
+10803 root
+10804 root
+11102 root
+12182 root
+12194 bta500
+12196 root
+12205 bta500
+12207 bta500
+12208 bta500
+12307 root
+12309 root
+12310 root
+12312 systemd+
+12331 root
+12335 root
+12337 nslcd
+12462 root
+12467 root
+12535 freeswi+
+12539 colord
+12549 root
+12550 root
+12658 jof222
+12872 root
+13217 root
+13266 root
+13269 root
+13272 root
+13462 root
+13494 root
+14071 eager
+14072 eager
+14626 oll724
+14628 oll724
+14682 dsg432
+14684 dsg432
+14731 root
+14733 postfix
+14820 root
+14825 sddm
+14828 sddm
+14832 sddm
+14901 postfix
+14938 sddm
+14939 sddm
+14941 root
+14945 polkitd
+14995 kdp740
+14998 kdp740
+15002 kdp740
+15004 kdp740
+15006 kdp740
+15100 root
+15326 root
+15328 root
+15330 root
+15579 root
+16385 rpcuser
+16391 root
+16398 root
+17990 root
+18000 dsg432
+18371 boinc
+18373 boinc
+18631 oll724
+18806 root
+19115 root
+19130 root
+19174 root
+19930 oll724
+19933 oll724
+19937 oll724
+19947 root
+19988 oll724
+19989 oll724
+20011 root
+20022 dsg432
+20032 oll724
+20193 root
+20201 oster
+20204 oster
+20208 oster
+20210 oster
+20212 oll724
+20213 oster
+20254 root
+20269 dsg432
+20810 root
+21600 oll724
+21857 root
+21962 oll724
+22357 root
+22423 root
+22424 root
+22514 root
+22527 bta500
+22530 bta500
+22533 root
+22536 bta500
+22538 bta500
+22547 bta500
+22549 bta500
+22955 bta500
+23298 root
+23365 oll724
+23593 shx116
+23596 shx116
+23600 shx116
+23602 shx116
+23604 shx116
+23673 root
+23684 dsg432
+23989 lp
+24432 oll724
+24991 root
+25001 jdp877
+25004 jdp877
+25008 jdp877
+25010 jdp877
+25012 jdp877
+25063 root
+25231 root
+25232 root
+25537 shx116
+25675 root
+25676 root
+26104 root
+26784 nbg635
+26787 nbg635
+26791 nbg635
+26793 nbg635
+26795 nbg635
+26880 oll724
+27299 root
+27481 root
+27493 bta500
+27495 root
+27504 bta500
+27506 bta500
+27556 root
+27566 root
+28147 kdp740
+28197 root
+28515 root
+29024 shx116
+29026 shx116
+29222 bta500
+29612 root
+29702 root
+29703 root
+29985 root
+29986 root
+29987 root
+30200 root
+30911 root
+30921 bta500
+30923 root
+30932 bta500
+30934 bta500
+31335 root
+32584 root
+32588 root
+32590 root
+32592 root
+32593 root
+32595 root
+32597 root
+32599 root
+33161 oll724
+33215 root
+33217 root
+33218 root
+33219 root
+33350 kdp740
+33398 root
+33399 root
+33400 root
+33696 root
+33921 root
+34113 root
+34686 root
+34723 root
+34735 bta500
+34737 root
+34746 bta500
+34748 bta500
+34749 bta500
+35220 root
+35229 bta500
+35231 bta500
+35666 root
+35668 root
+35862 root
+35864 root
+35865 root
+36251 kom607
+36254 kom607
+36258 kom607
+36481 oll724
+37871 root
+37900 dje456
+37903 dje456
+37907 dje456
+37922 root
+37932 root
+38050 dje456
+38051 dje456
+38231 oll724
+38914 jag190
+38917 jag190
+38921 jag190
+39002 jag190
+39003 jag190
+39327 nbg635
+39662 eager
+39665 eager
+39671 eager
+39673 eager
+39675 eager
+39790 eager
+39792 eager
+39862 dje456
+40468 root
+40483 dsg432
+40486 dsg432
+40490 dsg432
+40492 dsg432
+41524 root
+42009 root
+42020 rmc424
+42023 rmc424
+42027 rmc424
+42029 rmc424
+42031 rmc424
+42056 root
+42069 rjd471
+42072 rjd471
+42078 rjd471
+42080 rjd471
+42082 rjd471
+42484 root
+42513 root
+42552 ajc895
+42555 ajc895
+42559 ajc895
+42561 ajc895
+42563 ajc895
+42878 root
+42882 root
+43365 root
+43418 root
+43449 root
+43466 gam572
+43469 gam572
+43473 gam572
+43475 gam572
+43479 gam572
+43861 root
+43871 bta500
+43873 root
+43882 bta500
+43884 bta500
+43887 bta500
+43918 root
+44201 root
+44207 root
+44208 root
+44210 root
+44341 root
+44344 root
+44345 root
+44354 dwm750
+44393 dje456
+44795 root
+44802 root
+44949 root
+44962 nbg635
+44964 nbg635
+45066 root
+45070 root
+45073 root
+45077 root
+45094 root
+45108 eager
+45112 eager
+45602 root
+45604 root
+45610 kay851
+45626 kay851
+45864 root
+46087 root
+46089 root
+46090 root
+46105 root
+46107 root
+46108 root
+46236 dje456
+46372 root
+46383 jof222
+46386 jof222
+46390 jof222
+46392 jof222
+46394 jof222
+46960 root
+46978 dsg432
+46980 dsg432
+47325 kom607
+47326 kom607
+47371 kom607
+47646 root
+47832 root
+47850 dwm750
+47852 dwm750
+48288 root
+48795 root
+48824 root
+
