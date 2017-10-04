@@ -3,4 +3,4 @@ jof222
 Joseph Fuller
 
 
-top -b -n 1 | tail -n +8 | grep -v "$USER " | grep -v "root " | grep -c -v ^$
+top -b -n 1 -w 18 | tail -n +8 | grep -v "$USER" | grep -v "root" | grep -c -v ^$
