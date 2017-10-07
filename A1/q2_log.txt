@@ -5,36 +5,39 @@ Joseph Fuller
 _______________________________________________________
 
 # Output of finished pipeline. i.e. Total number of processes NOT owned by current user or root:
-jof222@tux8:~> top -b -n 1 -w 18 | tail -n +8 | grep -v "$USER" | grep -v "root" | grep -c -v ^$
-210
+jof222@tux6:~/Documents/CMPT214/A1> top -b -n 1 -w 18 | tail -n +8 | egrep -v -c "$USER|root|^$"
+106
 
 # Number of processes owned by current user:
-jof222@tux8:~> top -b -n 1 -w 18 | tail -n +8 | grep -c "$USER"                               
+jof222@tux6:~/Documents/CMPT214/A1> top -b -n 1 -w 18 | tail -n +8 | egrep -c "$USER"
 8
 
 # Number of processes owned by root:
-jof222@tux8:~> top -b -n 1 -w 18 | tail -n +8 | grep -c "root"
-526
+jof222@tux6:~/Documents/CMPT214/A1> top -b -n 1 -w 18 | tail -n +8 | egrep -c "root"
+500
 
 # Total number of processes:
-jof222@tux8:~> top -b -n 1 -w 18 | tail -n +8 | wc -l          
-740
+jof222@tux6:~/Documents/CMPT214/A1> top -b -n 1 -w 18 | tail -n +8 | wc -l                      
+614
 
-So, the difference between the two totals is 140. This is close enough for me to say that the 4-process 
-discrepancy can be explained by fluctuation of processes running on tux8 in the time between the commands being entered.
+The number of processes owned by the root or the current user subtracted from the total number of 
+processes running on the machine equals the output of my pipeline.
 _______________________________________________________
 
 MY OUPUT OF TOP: 
 
-top - 13:23:06 up 
-Tasks: 731 total, 
-%Cpu(s):  0.5 us, 
+jof222@tux6:~/Documents/CMPT214/A1> top -b -n 1 -w 18                                           
+top - 11:20:37 up 
+Tasks: 612 total, 
+%Cpu(s):  0.7 us, 
 KiB Mem : 13193510
 KiB Swap: 16778748
 
   PID USER
-12715 root
-14834 sddm
+24711 slm680
+11111 root
+32752 aab204
+25485 root
     1 root
     2 root
     3 root
@@ -290,478 +293,356 @@ KiB Swap: 16778748
   334 root
   335 root
   336 root
-  346 rjd471
   365 root
   375 root
   378 root
   379 root
   444 root
   445 root
-  450 root
-  453 root
-  720 root
- 1192 root
- 1207 root
- 1213 root
- 1214 root
- 1270 root
- 1271 root
- 1272 root
- 1276 root
- 1283 root
- 1316 root
+  718 root
+  986 root
+  987 root
+  988 root
+  991 root
+ 1189 jpf711
+ 1192 jpf711
+ 1196 root
+ 1197 jpf711
+ 1208 root
+ 1260 root
+ 1261 root
+ 1262 root
+ 1263 root
+ 1267 root
+ 1297 root
+ 1299 root
+ 1307 root
+ 1320 root
+ 1321 root
+ 1327 root
  1329 root
- 1330 root
- 1331 root
- 1332 root
- 1335 root
- 1345 root
- 1350 root
- 1352 root
- 1365 root
- 1393 root
- 1394 root
- 1400 root
+ 1334 root
+ 1346 root
+ 1351 root
+ 1359 root
+ 1361 root
+ 1369 root
+ 1372 root
+ 1373 root
+ 1376 root
+ 1383 root
+ 1384 root
+ 1398 root
+ 1399 root
+ 1402 root
  1407 root
- 1408 root
- 1414 root
- 1418 root
- 1423 root
- 1425 root
- 1454 root
- 1468 oll724
- 1470 oll724
- 1531 root
- 1535 root
- 1539 root
- 1540 root
- 1541 root
- 1542 root
- 1555 root
- 1556 root
- 1558 root
- 1560 root
- 1583 root
- 1637 root
- 1638 root
- 1660 root
- 1677 root
- 1678 root
- 1680 root
- 1688 root
- 1689 root
- 1693 root
- 1706 root
- 1795 root
- 1812 root
+ 1409 root
+ 1415 root
+ 1441 root
+ 1496 root
+ 1497 root
+ 1528 root
+ 1529 root
+ 1544 root
+ 1548 root
+ 1586 root
+ 1593 root
+ 1594 root
+ 1599 root
+ 1604 root
+ 1610 root
+ 1651 root
+ 1652 root
+ 1661 root
+ 1669 root
+ 1670 root
+ 1681 root
+ 1703 root
+ 1841 root
  1842 root
- 1844 root
- 2097 root
- 2100 root
- 2102 root
- 2104 root
- 2347 root
- 2388 root
- 2595 root
- 2641 root
- 2887 root
- 2906 kay851
- 2909 kay851
- 2913 kay851
- 2915 kay851
- 2917 kay851
- 3283 oll724
- 3284 oll724
- 3331 root
- 3431 root
- 3554 dsg432
- 3862 root
- 3872 bta500
- 3874 root
- 3883 bta500
- 3885 bta500
- 4074 root
- 4084 root
- 4306 root
- 4358 root
- 4368 dsg432
- 4843 root
- 5054 yuh347
- 5057 yuh347
- 5061 yuh347
- 5063 yuh347
- 5065 yuh347
- 5325 root
- 5327 root
- 5589 root
- 5647 root
- 6093 root
- 6103 ggb803
- 6106 ggb803
- 6110 ggb803
- 6112 ggb803
- 6115 root
- 6125 ggb803
- 6722 root
- 7026 root
- 7312 root
- 7568 bta500
- 7822 root
- 8552 root
- 8554 root
- 8555 root
- 8602 root
- 9112 root
- 9113 root
- 9120 postfix
- 9604 root
- 9621 root
- 9712 rtkit
- 9713 root
- 9714 daemon
- 9715 root
- 9717 root
- 9718 root
- 9719 root
- 9733 root
- 9739 message+
- 9750 chrony
- 9759 root
- 9769 root
- 9848 systemd+
- 9850 avahi
- 9855 root
- 9907 root
- 9908 root
- 9916 rpc
- 9922 avahi
- 9988 root
-10144 root
-10186 root
-10188 root
-10201 dwm750
-10204 dwm750
-10209 dwm750
-10211 dwm750
-10239 root
-10283 root
-10370 oll724
-10523 dwm750
-10802 root
-10803 root
-10804 root
-11102 root
-12182 root
-12194 bta500
-12196 root
-12205 bta500
-12207 bta500
-12208 bta500
-12307 root
-12309 root
-12310 root
-12312 systemd+
-12331 root
-12335 root
-12337 nslcd
-12462 root
-12467 root
-12535 freeswi+
-12539 colord
-12549 root
-12550 root
-12658 jof222
-12872 root
-13217 root
-13266 root
-13269 root
-13272 root
-13462 root
-13494 root
-14071 eager
-14072 eager
-14626 oll724
-14628 oll724
-14682 dsg432
-14684 dsg432
-14731 root
-14733 postfix
-14820 root
-14825 sddm
-14828 sddm
-14832 sddm
-14901 postfix
-14938 sddm
-14939 sddm
-14941 root
-14945 polkitd
-14995 kdp740
-14998 kdp740
-15002 kdp740
-15004 kdp740
-15006 kdp740
-15100 root
-15326 root
-15328 root
-15330 root
-15579 root
-16385 rpcuser
-16391 root
-16398 root
-17990 root
-18000 dsg432
-18371 boinc
-18373 boinc
-18631 oll724
-18806 root
-19115 root
-19130 root
-19174 root
-19930 oll724
-19933 oll724
-19937 oll724
-19947 root
-19988 oll724
-19989 oll724
-20011 root
-20022 dsg432
-20032 oll724
-20193 root
-20201 oster
-20204 oster
-20208 oster
-20210 oster
-20212 oll724
-20213 oster
-20254 root
-20269 dsg432
-20810 root
-21600 oll724
-21857 root
-21962 oll724
-22357 root
-22423 root
-22424 root
-22514 root
-22527 bta500
-22530 bta500
-22533 root
-22536 bta500
-22538 bta500
-22547 bta500
-22549 bta500
-22955 bta500
-23298 root
-23365 oll724
-23593 shx116
-23596 shx116
-23600 shx116
-23602 shx116
-23604 shx116
-23673 root
-23684 dsg432
-23989 lp
-24432 oll724
-24991 root
-25001 jdp877
-25004 jdp877
-25008 jdp877
-25010 jdp877
-25012 jdp877
-25063 root
-25231 root
-25232 root
-25537 shx116
-25675 root
-25676 root
-26104 root
-26784 nbg635
-26787 nbg635
-26791 nbg635
-26793 nbg635
-26795 nbg635
-26880 oll724
-27299 root
-27481 root
-27493 bta500
-27495 root
-27504 bta500
-27506 bta500
-27556 root
-27566 root
-28147 kdp740
-28197 root
-28515 root
-29024 shx116
-29026 shx116
-29222 bta500
-29612 root
-29702 root
-29703 root
-29985 root
-29986 root
-29987 root
-30200 root
-30911 root
-30921 bta500
-30923 root
-30932 bta500
-30934 bta500
-31335 root
-32584 root
-32588 root
-32590 root
-32592 root
-32593 root
-32595 root
-32597 root
-32599 root
-33161 oll724
-33215 root
-33217 root
-33218 root
-33219 root
-33350 kdp740
-33398 root
-33399 root
-33400 root
-33696 root
-33921 root
-34113 root
-34686 root
-34723 root
-34735 bta500
-34737 root
-34746 bta500
-34748 bta500
-34749 bta500
-35220 root
-35229 bta500
-35231 bta500
-35666 root
-35668 root
-35862 root
-35864 root
-35865 root
-36251 kom607
-36254 kom607
-36258 kom607
-36481 oll724
-37871 root
-37900 dje456
-37903 dje456
-37907 dje456
-37922 root
-37932 root
-38050 dje456
-38051 dje456
-38231 oll724
-38914 jag190
-38917 jag190
-38921 jag190
-39002 jag190
-39003 jag190
-39327 nbg635
-39662 eager
-39665 eager
-39671 eager
-39673 eager
-39675 eager
-39790 eager
-39792 eager
-39862 dje456
-40468 root
-40483 dsg432
-40486 dsg432
-40490 dsg432
-40492 dsg432
-41524 root
-42009 root
-42020 rmc424
-42023 rmc424
-42027 rmc424
-42029 rmc424
-42031 rmc424
-42056 root
-42069 rjd471
-42072 rjd471
-42078 rjd471
-42080 rjd471
-42082 rjd471
-42484 root
-42513 root
-42552 ajc895
-42555 ajc895
-42559 ajc895
-42561 ajc895
-42563 ajc895
-42878 root
-42882 root
-43365 root
-43418 root
-43449 root
-43466 gam572
-43469 gam572
-43473 gam572
-43475 gam572
-43479 gam572
-43861 root
-43871 bta500
-43873 root
-43882 bta500
-43884 bta500
-43887 bta500
-43918 root
-44201 root
-44207 root
-44208 root
-44210 root
-44341 root
-44344 root
-44345 root
-44354 dwm750
-44393 dje456
-44795 root
-44802 root
-44949 root
-44962 nbg635
-44964 nbg635
-45066 root
-45070 root
-45073 root
-45077 root
-45094 root
-45108 eager
-45112 eager
-45602 root
-45604 root
-45610 kay851
-45626 kay851
-45864 root
-46087 root
-46089 root
-46090 root
-46105 root
-46107 root
-46108 root
-46236 dje456
-46372 root
-46383 jof222
-46386 jof222
-46390 jof222
-46392 jof222
-46394 jof222
-46960 root
-46978 dsg432
-46980 dsg432
-47325 kom607
-47326 kom607
-47371 kom607
-47646 root
-47832 root
-47850 dwm750
-47852 dwm750
-48288 root
-48795 root
-48824 root
-
+ 1882 dje456
+ 1906 root
+ 1909 root
+ 2289 root
+ 2320 root
+ 2777 root
+ 3071 root
+ 3222 root
+ 3224 root
+ 3225 root
+ 3661 dje456
+ 3797 oll724
+ 3891 oll724
+ 3999 dje456
+ 4042 root
+ 4047 root
+ 4155 root
+ 4189 root
+ 4190 root
+ 4191 root
+ 4466 jpf711
+ 4471 root
+ 4630 root
+ 5253 btt079
+ 5256 btt079
+ 5262 btt079
+ 6166 root
+ 6179 yuh347
+ 6182 yuh347
+ 6186 yuh347
+ 6188 yuh347
+ 6190 yuh347
+ 6549 root
+ 6586 root
+ 6735 lp
+ 6788 root
+ 6789 root
+ 6790 root
+ 6791 root
+ 6930 root
+ 7222 dje456
+ 7439 oll724
+ 7492 root
+ 7496 root
+ 7566 root
+ 8220 jof222
+ 8382 root
+ 8989 root
+ 9280 root
+ 9547 root
+ 9614 root
+ 9670 root
+ 9691 root
+ 9693 avahi
+ 9694 root
+ 9695 root
+ 9712 root
+ 9714 rtkit
+ 9715 message+
+ 9716 rpc
+ 9718 avahi
+ 9760 systemd+
+ 9763 root
+ 9772 root
+ 9773 root
+ 9774 root
+ 9775 daemon
+ 9790 root
+ 9791 root
+ 9804 root
+ 9852 root
+ 9883 root
+10010 btt079
+10075 btt079
+10507 root
+10528 oll724
+10774 root
+10776 root
+10777 systemd+
+10779 root
+10781 root
+10811 root
+10901 nslcd
+10929 postfix
+11228 root
+11328 freeswi+
+11374 root
+11456 root
+11458 colord
+11472 raa462
+11475 raa462
+11479 raa462
+11481 raa462
+11484 raa462
+11517 root
+11600 root
+11610 root
+11611 root
+11626 root
+11633 ntp
+12330 root
+13296 root
+13301 sddm
+13354 root
+13370 sddm
+13374 sddm
+13376 sddm
+13399 sddm
+13400 sddm
+13402 root
+13406 polkitd
+14326 root
+15180 root
+15182 root
+15707 root
+15751 root
+15795 root
+15839 root
+16032 postfix
+16035 root
+16039 root
+16102 root
+16329 root
+16330 root
+16332 root
+16333 root
+16335 root
+16336 root
+16338 root
+16339 root
+16458 root
+16483 root
+16563 root
+16888 root
+16892 root
+18409 postfix
+18532 boinc
+18561 boinc
+18566 boinc
+18958 boinc
+19005 root
+20348 root
+21441 root
+21451 root
+21509 root
+21518 root
+21698 root
+21708 root
+21709 root
+22191 root
+22192 root
+22479 root
+22480 root
+23069 rpcuser
+23076 root
+23083 root
+23447 root
+23561 root
+23575 root
+23590 root
+23683 root
+24557 root
+24800 dje456
+25007 root
+25009 root
+25010 root
+25151 dje456
+25154 dje456
+25158 dje456
+25379 root
+25383 root
+25886 oll724
+25889 oll724
+25893 oll724
+25899 root
+26024 root
+26028 root
+26617 root
+27330 root
+27338 root
+28081 boinc
+28083 boinc
+29567 root
+29568 root
+29792 root
+30178 slm680
+30181 slm680
+30185 slm680
+30498 root
+30692 root
+30818 root
+30819 root
+31018 root
+31151 root
+31321 root
+31370 root
+31373 root
+31462 root
+31463 root
+31464 root
+34455 root
+34559 root
+35594 oll724
+35595 oll724
+35691 oll724
+35892 root
+35895 root
+35897 root
+36176 root
+36505 root
+36507 root
+36508 root
+36510 root
+36802 root
+37123 root
+37552 oll724
+37705 root
+38106 root
+38107 root
+38108 root
+38139 root
+38172 root
+38248 root
+38385 root
+39168 root
+39178 root
+39179 root
+39943 root
+40306 dje456
+40383 dje456
+40490 dje456
+41485 root
+41638 root
+42958 dje456
+42959 dje456
+43011 dje456
+43062 dje456
+43106 root
+43171 root
+43266 aab204
+43269 aab204
+43273 aab204
+43340 root
+43505 root
+43649 wim024
+43652 wim024
+43671 wim024
+43673 wim024
+43675 wim024
+44179 root
+44200 oll724
+44215 oster
+44218 oster
+44237 oster
+44239 oster
+44241 oster
+44863 root
+45036 root
+45872 oll724
+46218 root
+46220 root
+46409 jdm796
+46412 jdm796
+46431 jdm796
+46433 jdm796
+46435 jdm796
+46555 root
+46726 root
+46818 oll724
+47758 root
+47759 root
+47760 root
+48031 root
+48070 jof222
+48073 jof222
+48077 jof222
+48083 jof222
+48096 jof222
+48260 root
+49011 root
+49078 root
+49115 gsb601
+49118 gsb601
+49122 gsb601
+49124 gsb601
+49141 gsb601
