@@ -1,0 +1,52 @@
+11231094
+jof222
+Joseph Fuller
+
+I completed this question on a tuxworld machine.
+
+—————————————————————————————
+I saved the provided example file as 10255_result_ex.txt.
+
+// The number of 5-mers left in the example file:
+jof222@tux6:~/Documents/CMPT214/A1> wc -l 10255_result_ex.txt
+3147983 10255_result_ex.txt
+
+// The number of 5-mers in the result file created by my pipeline:
+jof222@tux6:~/Documents/CMPT214/A1> cut -f 3 10255_nmerext.txt | grep -v -f - all_5-mers.txt > 10255_result.txt
+jof222@tux6:~/Documents/CMPT214/A1> wc -l 10255_result.txt
+3147983 10255_result.txt
+
+The example file and the file created by my pipeline contain the same number of 5-mers.
+
+—————————————————————————————
+
+// Comparing the example result file and my result file of 10255:
+jof222@tux6:~/Documents/CMPT214/A1> diff 10255_result.txt 10255_result_ex.txt
+
+diff(1) produced no output, indicating that the files contain the same 5-mers.
+
+—————————————————————————————
+
+// The number of unique 5-mers in 10255_nmerext:
+jof222@tux6:~/Documents/CMPT214/A1> cut -f 3 10255_nmerext.txt | sort | uniq | wc -l
+52017
+
+The difference of the total 5-mers (3200000) and the 5-mers in 10255 (52017) matches 
+the number of 5-mers in the output file (3147983).
+
+—————————————————————————————
+
+
+// Number of unique 5-mers in 10359_nmerext.txt:
+jof222@tux6:~/Documents/CMPT214/A1> cut -f 3 10359_nmerext.txt | sort | uniq | wc -l
+61001
+
+// Number of 5-mers in 10359_result.txt produced by my pipeline:
+jof222@tux6:~/Documents/CMPT214/A1> cut -f 3 10359_nmerext.txt | grep -v -f - all_5-mers.txt > 10359_result.txt
+jof222@tux6:~/Documents/CMPT214/A1> wc -l 10359_result.txt
+3138999 10359_result.txt
+
+The difference of the total 5-mers (3200000) and the 5-mers in 10359 (61001) matches 
+the number of 5-mers in the output file (3138999).
+
+

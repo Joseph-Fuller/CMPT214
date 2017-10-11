@@ -1,0 +1,9 @@
+11231094
+jof222
+Joseph Fuller
+
+I completed this question on a tuxworld machine.
+
+
+cut -f 3 10255_nmerext.txt | sort - | grep -v -f - all_5-mers.txt > 10255_result.txt
+cut -f 3 10359_nmerext.txt | sort - | grep -v -f - all_5-mers.txt > 10359_result.txt
