@@ -1,0 +1,249 @@
+11231094
+jof222
+Joseph Fuller
+
+
+1.
+
+a)
+Valid Canadian postal codes do not contain the characters D,F,I,O,Q, or V 
+They do not contain the characters W or Z in the first space.
+
+// Valid codes
+jof222@tux6:~/Documents/CMPT214> POSTAL_CODE="S7N 5C9"
+jof222@tux6:~/Documents/CMPT214> grep "\<[ABCEGHJKLMNPRSTUXY][0-9][ABCEGHJKLMNPRSTUWXYZ] [0-9][ABCEGHJKLMNPRSTUWXYZ][0-9]\>" <<< "$POSTAL_CODE"
+S7N 5C9
+
+jof222@tux6:~/Documents/CMPT214> POSTAL_CODE="S7K 4T2"
+jof222@tux6:~/Documents/CMPT214> grep "\<[ABCEGHJKLMNPRSTUXY][0-9][ABCEGHJKLMNPRSTUWXYZ] [0-9][ABCEGHJKLMNPRSTUWXYZ][0-9]\>" <<< "$POSTAL_CODE"
+S7K 4T2
+
+
+// Non-valid codes
+jof222@tux6:~/Documents/CMPT214> POSTAL_CODE="wegvsfwqcT5Q 6J0sfasc"
+jof222@tux6:~/Documents/CMPT214> grep "\<[ABCEGHJKLMNPRSTUXY][0-9][ABCEGHJKLMNPRSTUWXYZ] [0-9][ABCEGHJKLMNPRSTUWXYZ][0-9]\>" <<< "$POSTAL_CODE"
+jof222@tux6:~/Documents/CMPT214>
+
+jof222@tux6:~/Documents/CMPT214> POSTAL_CODE="S7K 777"              
+jof222@tux6:~/Documents/CMPT214> grep "\<[ABCEGHJKLMNPRSTUXY][0-9][ABCEGHJKLMNPRSTUWXYZ] [0-9][ABCEGHJKLMNPRSTUWXYZ][0-9]\>" <<< "$POSTAL_CODE"
+jof222@tux6:~/Documents/CMPT214> 
+
+jof222@tux6:~/Documents/CMPT214> POSTAL_CODE="W7N 5C9"
+jof222@tux6:~/Documents/CMPT214> grep "\<[ABCEGHJKLMNPRSTUXY][0-9][ABCEGHJKLMNPRSTUWXYZ] [0-9][ABCEGHJKLMNPRSTUWXYZ][0-9]\>" <<< "$POSTAL_CODE"
+jof222@tux6:~/Documents/CMPT214> 
+
+b)
+jof222@tux6:~/Documents/CMPT214> egrep "^[IO][[:lower:]]+.*box$" mailinfo.txt
+Inbox
+Is a match box
+Outbox
+jof222@tux6:~/Documents/CMPT214> egrep -v "^[IO][[:lower:]]+.*box$" mailinfo.txt
+the Inbox
+Doesn't match
+INBOX
+Outbox1
+InbOX
+Ibox
+I box
+
+
+c)
+jof222@tux6:~/Documents/CMPT214> egrep -c "^[IO][[:lower:]]+.*box$" mailinfo.txt
+3
+
+
+————————————————————————————————————
+
+2.
+
+jof222@tux6:~/Documents/CMPT214> cp /etc/passwd ./passwd
+
+a)
+
+jof222@tux6:~/Documents/CMPT214> cut -f 1 -d ":" passwd       
+root
+bin
+daemon
+adm
+lp
+sync
+mail
+news
+uucp
+operator
+games
+nobody
+messagebus
+systemd-journal-gateway
+systemd-resolve
+systemd-timesync
+systemd-journal-upload
+systemd-network
+systemd-journal-remote
+systemd-coredump
+rpm
+vcsa
+davfs2
+polkitd
+rtkit
+colord
+gdm
+apache
+mysql
+rpc
+openvpn
+lightdm
+nm-openconnect
+postfix
+ntp
+sshd
+sddm
+nm-openvpn
+nscd
+rpcuser
+samba
+local
+chrony
+svn
+avahi
+avahi-autoipd
+nagios
+epmd
+qemu
+freeswitch
+nslcd
+boinc
+
+b)
+jof222@tux6:~/Documents/CMPT214> cut -f 1 -d ":" passwd | sort -r
+vcsa
+uucp
+systemd-timesync
+systemd-resolve
+systemd-network
+systemd-journal-upload
+systemd-journal-remote
+systemd-journal-gateway
+systemd-coredump
+sync
+svn
+sshd
+sddm
+samba
+rtkit
+rpm
+rpcuser
+rpc
+root
+qemu
+postfix
+polkitd
+operator
+openvpn
+ntp
+nslcd
+nscd
+nobody
+nm-openvpn
+nm-openconnect
+news
+nagios
+mysql
+messagebus
+mail
+lp
+local
+lightdm
+gdm
+games
+freeswitch
+epmd
+davfs2
+daemon
+colord
+chrony
+boinc
+bin
+avahi-autoipd
+avahi
+apache
+adm
+
+c)
+jof222@tux6:~/Documents/CMPT214> cut -f 1 -d ":" passwd | sort | tail -n 1 
+vcsa
+
+d)
+jof222@tux6:~/Documents/CMPT214> cut -f 1 -d ":" passwd | sort | tail -n 1 | cut -c 1
+v
+
+e)
+jof222@tux6:~/Documents/CMPT214> cut -f 1 -d ":" passwd | sort | tail -n 1 | cut -c 1 | tr v V
+V
+
+f)
+jof222@tux6:~/Documents/CMPT214> cut -f 1 -d ":" passwd | sort | tail -n 1 > max_username.txt    
+jof222@tux6:~/Documents/CMPT214> more max_username.txt
+vcsa
+
+————————————————————————————————————
+
+3.
+
+a)
+jof222@tux6:~/Documents/CMPT214> COLUMN1_HEADING="Name"
+jof222@tux6:~/Documents/CMPT214> COLUMN2_HEADING="Student number"
+jof222@tux6:~/Documents/CMPT214> printf "%s\t\t%s %s\nJohn Smith\t123456789\n" $COLUMN1_HEADING $COLUMN2_HEADING
+Name		Student number
+John Smith	123456789
+
+b)
+jof222@tux6:~/Documents/CMPT214> printf "%s\n" \$COLUMN1_HEADING\\t\$COLUMN2_HEADING\\nJohn\\t123456789\\n
+$COLUMN1_HEADING\t$COLUMN2_HEADING\nJohn\t123456789\n
+
+————————————————————————————————————
+
+4.
+a)
+jof222@tux6:~/Documents/CMPT214> gcc q4.c
+jof222@tux6:~/Documents/CMPT214> ./a.out
+The one's complement of 34567 is 0xffff78f8 or 0
+x = 10.370000
+
+b)
+jof222@tux6:~/Documents/CMPT214> gcc -Wall -Wextra q4.c
+q4.c: In function 'main':
+q4.c:13:11: warning: format '%o' expects a matching 'unsigned int' argument [-Wformat=]
+   printf( "The one's complement of %d is %#x or %#o\n", i, ci );
+           ^
+jof222@tux6:~/Documents/CMPT214> ./a.out
+The one's complement of 34567 is 0xffff78f8 or 0
+x = 10.370000
+
+c)
+jof222@tux6:~/Documents/CMPT214> gcc -Wall -Wextra q4_fixed.c
+jof222@tux6:~/Documents/CMPT214> ./a.out
+The one's complement of 34567 is 0xffff78f8 or 037777674370
+x = 10.370000
+
+d)
+jof222@tux6:~/Documents/CMPT214> diff q4.c q4_fixed.c
+13c13
+<   printf( "The one's complement of %d is %#x or %#o\n", i, ci );
+---
+>   printf( "The one's complement of %d is %#x or %#o\n", i, ci, ci);
+
+e)
+jof222@tux6:~/Documents/CMPT214> gcc -Wall -Wextra q4_modified.c
+jof222@tux6:~/Documents/CMPT214> ./a.out
+The one's complement of 34567 is 0xffff78f8 or 037777674370
+x = 10.37
+jof222@tux6:~/Documents/CMPT214> diff q4_fixed.c q4_modified.c
+16c16
+<   printf( "x = %f\n", x );
+---
+>   printf( "x = %.2f\n", x );
+
+
+
+

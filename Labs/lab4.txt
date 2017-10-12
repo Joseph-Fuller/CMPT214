@@ -1,0 +1,176 @@
+11231094
+jof222
+Joseph Fuller
+
+1.
+jof222@tux7:~> df ~/
+Filesystem             Size  Used Avail Use% Mounted on
+192.168.80.1:/student  6.0T  2.4T  3.3T  42% /student
+
+I think the address of the server is 192.168.80.1
+
+2.
+
+a)
+jof222@tux7:~/214lab4> mkdir dir1
+jof222@tux7:~/214lab4> mkdir dir2
+jof222@tux7:~/214lab4> cd dir1
+jof222@tux7:~/214lab4/dir1> cp /etc/passwd ../dir2
+
+b)
+jof222@tux7:~/214lab4/dir1> cd ..
+jof222@tux7:~/214lab4> tar -cf dirs.tar.gz dir1 dir2
+jof222@tux7:~/214lab4> echo Pulp Fiction > favourite_movie.tar.gz
+
+c)
+jof222@tux7:~/214lab4> file dirs.tar.gz favourite_movie.tar.gz
+dirs.tar.gz:            POSIX tar archive (GNU)
+favourite_movie.tar.gz: ASCII text
+
+3.
+
+a)
+jof222@tux7:~/214lab4> w > wtemp.txt
+jof222@tux7:~/214lab4> cat wtemp.txt | tail -n +3 > w.txt
+jof222@tux7:~/214lab4> cat wtemp.txt w.txt
+jof222@tux7:~/214lab4> cat wtemp.txt
+ 16:22:41 up 22 days, 51 min, 27 users,  load average: 1.86, 2.07, 1.93
+USER     TTY        LOGIN@   IDLE   JCPU   PCPU WHAT
+wcr723   pts/1     12:41   25.00s  0.29s  0.03s vim partE.c
+oster    pts/2     27Sep17  6days  0.03s  0.03s -csh
+aab204   pts/3     16:14    7:21   0.03s  0.03s -bash
+jjb465   pts/5     14:31    1:47m  0.05s  0.05s -bash
+amk899   pts/9     11:55    4:14   0.09s  0.09s -bash
+add118   pts/13    15Sep17 11days  0.15s  0.15s -bash
+rap014   pts/15    15:57    2:09   0.04s  0.04s -bash
+mxg040   pts/20    14:03    1:43m  0.05s  0.05s -bash
+klr232   pts/23    14:05   31.00s  0.34s  0.04s vim myShell.c
+mtf966   pts/24    16:10    6:01  12:16  12:16  /student/cmpt332/xv6/qemu/bin/qemu-system-i386 -nographic -hdb fs.img xv6.img -smp 2 -m 512
+jjb465   pts/26    14:35   45:13   0.08s  0.08s -bash
+mjg539   pts/27    14:08    2:10m  0.04s  0.04s -bash
+mdk181   pts/28    14:46    1:33m  0.12s  0.12s -bash
+pac464   pts/29    16:10    8.00s  0.03s  0.03s -bash
+adp155   pts/30    16:15   33.00s  0.05s  0.05s -bash
+ads567   pts/31    15:48    9.00s  0.09s  0.09s -bash
+the644   pts/32    15:58    2:07  17.64s  0.09s -bash
+adp155   pts/33    16:00    1:21   0.93s  0.89s vim mytestlist.c
+adp155   pts/34    16:01    3.00s  0.44s  0.38s vim list_removers.c
+avr715   pts/35    13:19   17.00s  0.24s  0.07s vim partE.c
+jbp788   pts/36    16:02   31.00s  0.05s  0.02s bash
+adf599   pts/37    16:06    3:53   0.04s  0.04s -bash
+jof222   pts/38    16:03    1.00s  0.07s  0.01s w
+xtp879   pts/39    16:04    1:04   0.06s  0.06s -bash
+bbm321   pts/40    16:05    5.00s  0.05s  0.05s -bash
+tfp482   pts/41    16:08    9.00s  0.06s  0.06s -bash
+mtf966   pts/42    16:12    1.00s  0.35s  0.30s vi test_csinfo.c
+jof222@tux7:~/214lab4> cat w.txt
+wcr723   pts/1     12:41   25.00s  0.29s  0.03s vim partE.c
+oster    pts/2     27Sep17  6days  0.03s  0.03s -csh
+aab204   pts/3     16:14    7:21   0.03s  0.03s -bash
+jjb465   pts/5     14:31    1:47m  0.05s  0.05s -bash
+amk899   pts/9     11:55    4:14   0.09s  0.09s -bash
+add118   pts/13    15Sep17 11days  0.15s  0.15s -bash
+rap014   pts/15    15:57    2:09   0.04s  0.04s -bash
+mxg040   pts/20    14:03    1:43m  0.05s  0.05s -bash
+klr232   pts/23    14:05   31.00s  0.34s  0.04s vim myShell.c
+mtf966   pts/24    16:10    6:01  12:16  12:16  /student/cmpt332/xv6/qemu/bin/qemu-system-i386 -nographic -hdb fs.img xv6.img -smp 2 -m 512
+jjb465   pts/26    14:35   45:13   0.08s  0.08s -bash
+mjg539   pts/27    14:08    2:10m  0.04s  0.04s -bash
+mdk181   pts/28    14:46    1:33m  0.12s  0.12s -bash
+pac464   pts/29    16:10    8.00s  0.03s  0.03s -bash
+adp155   pts/30    16:15   33.00s  0.05s  0.05s -bash
+ads567   pts/31    15:48    9.00s  0.09s  0.09s -bash
+the644   pts/32    15:58    2:07  17.64s  0.09s -bash
+adp155   pts/33    16:00    1:21   0.93s  0.89s vim mytestlist.c
+adp155   pts/34    16:01    3.00s  0.44s  0.38s vim list_removers.c
+avr715   pts/35    13:19   17.00s  0.24s  0.07s vim partE.c
+jbp788   pts/36    16:02   31.00s  0.05s  0.02s bash
+adf599   pts/37    16:06    3:53   0.04s  0.04s -bash
+jof222   pts/38    16:03    1.00s  0.07s  0.01s w
+xtp879   pts/39    16:04    1:04   0.06s  0.06s -bash
+bbm321   pts/40    16:05    5.00s  0.05s  0.05s -bash
+tfp482   pts/41    16:08    9.00s  0.06s  0.06s -bash
+mtf966   pts/42    16:12    1.00s  0.35s  0.30s vi test_csinfo.c
+
+b)
+jof222@tux7:~/214lab4> cut -d " "  -f 1 w.txt
+wcr723
+oster
+aab204
+jjb465
+amk899
+add118
+rap014
+mxg040
+klr232
+mtf966
+jjb465
+mjg539
+mdk181
+pac464
+adp155
+ads567
+the644
+adp155
+adp155
+avr715
+jbp788
+adf599
+jof222
+xtp879
+bbm321
+tfp482
+mtf966
+
+c)
+jof222@tux7:~/214lab4> tr -s " " < w.txt > w1.txt
+
+d)
+jof222@tux7:~/214lab4> cut -d " " -f 5 w1.txt | sort -r
+17.64s
+12:16
+0.93s
+0.44s
+0.35s
+0.34s
+0.29s
+0.24s
+0.15s
+0.12s
+0.09s
+0.09s
+0.08s
+0.07s
+0.06s
+0.06s
+0.05s
+0.05s
+0.05s
+0.05s
+0.05s
+0.04s
+0.04s
+0.04s
+0.03s
+0.03s
+0.03s
+
+4.
+jof222@tux7:~/214lab4> sort usernames.txt > temp ; diff temp usernames.txt
+18d17
+< nobody
+19a19
+> nobody
+
+The sorted file differs from the original usernames.txt, indicating that the
+original was not sorted alphabetically.
+
+5.
+jof222@tux7:~/214lab4> sort usernames.txt | diff - usernames.txt
+18d17
+< nobody
+19a19
+> nobody
+
+
+
